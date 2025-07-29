@@ -20,11 +20,9 @@ public class UserController {
     
     @GetMapping("/details")
     public Map<String, Object> details(){
-
         User user = new User("Guido", "Paco");
         user.setEmail("guidjhonsen.tu.rey@gmail.com");
         Map<String, Object> body = new HashMap<>();
-
         body.put("title", "Hola Mundo Spring Boot");
         body.put("user", user);
         return body;

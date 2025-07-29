@@ -27,7 +27,7 @@ public class RequestParamsController {
     public ParamDto bar(@RequestParam String text, @RequestParam Integer code){
         ParamDto params=new ParamDto();
         params.setMessage(text);
-        //params.setCode(code);
+        params.setCode(code);
         return params;
     }
 
