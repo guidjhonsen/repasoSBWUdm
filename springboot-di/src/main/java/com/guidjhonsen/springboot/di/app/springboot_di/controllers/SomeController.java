@@ -19,6 +19,10 @@ public class SomeController {
     private ProductService service;//=new ProductServiceImpl();
 
 
+    /*public SomeController(ProductService service) {
+        this.service = service;
+    }*/
+
     @GetMapping
     public List<Product> list(){
         return service.findAll();

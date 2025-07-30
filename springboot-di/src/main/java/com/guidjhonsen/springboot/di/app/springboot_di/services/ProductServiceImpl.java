@@ -16,6 +16,10 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductoRepository repository;//--new ProductRepositoryImpl();
 
+    /*public ProductServiceImpl(ProductoRepository repository) {
+        this.repository = repository;
+    }*/
+
     @Override
     public List<Product> findAll(){
 
@@ -33,4 +37,5 @@ public class ProductServiceImpl implements ProductService {
     public Product findById(Long id){
         return repository.findById(id);
     }
+
 }
