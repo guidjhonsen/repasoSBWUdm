@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.guidjhonsen.springboot.di.app.springboot_di.models.Product;
 
 @Repository//es un componente de acceso a datos DAO
-public class ProductRepositoryImpl implements ProductoRepository{
+public class ProductRepositoryImpl implements ProductRepository{
     private List<Product> data;
 
     public ProductRepositoryImpl() {

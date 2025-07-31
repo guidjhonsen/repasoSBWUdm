@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.guidjhonsen.springboot.di.app.springboot_di.models.Product;
-import com.guidjhonsen.springboot.di.app.springboot_di.repositories.ProductoRepository;
+import com.guidjhonsen.springboot.di.app.springboot_di.repositories.ProductRepository;
 
 
 @Service //Para acceder a la lógica de negocio
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    private ProductoRepository repository;//--new ProductRepositoryImpl();
+    private ProductRepository repository;//--new ProductRepositoryImpl();
 
     /*public ProductServiceImpl(ProductoRepository repository) {
         this.repository = repository;
