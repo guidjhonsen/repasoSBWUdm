@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.guidjhonsen.springboot.di.app.springboot_di.models.Product;
@@ -13,12 +14,12 @@ import com.guidjhonsen.springboot.di.app.springboot_di.repositories.ProductRepos
 @Service //Para acceder a la lógica de negocio
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
+   // @Autowired
     private ProductRepository repository;//--new ProductRepositoryImpl();
 
-    /*public ProductServiceImpl(ProductoRepository repository) {
+    public ProductServiceImpl(@Qualifier("productList") ProductRepository repository) {
         this.repository = repository;
-    }*/
+    }
 
     @Override
     public List<Product> findAll(){
