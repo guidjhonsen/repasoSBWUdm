@@ -11,9 +11,11 @@ import org.springframework.web.context.annotation.SessionScope;
 import com.guidjhonsen.springboot.di.app.springboot_di.models.Product;
 
 
-@Primary
+
 //@RequestScope
-@SessionScope
+
+@Primary
+//@SessionScope
 @Repository("productList")
 public class ProductRepositoryImpl implements ProductRepository{
     private List<Product> data;

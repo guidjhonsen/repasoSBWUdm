@@ -37,12 +37,16 @@ public class ProductRepositoryJson implements ProductRepository {
 
     @Override
     public List<Product> findAll(){
-        throw new UnsupportedOperationException("Unimplemented methos");
+        return list;
     }
 
     @Override
-    public Product findById(Long Id){
-        return null;
+    public Product findById(Long id){
+        return list.stream().filter(
+            p->{
+                return p.getId().equals(id);
+            }
+        ).findFirst().orElseThrow();
     }
 
 }
