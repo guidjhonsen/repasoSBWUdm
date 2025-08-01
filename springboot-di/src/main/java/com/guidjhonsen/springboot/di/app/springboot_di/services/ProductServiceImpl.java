@@ -29,8 +29,9 @@ public class ProductServiceImpl implements ProductService {
             //Product newProd=new Product(p.getId(), p.getName(), priceTax.longValue());
             Product newProd = (Product) p.clone();
             newProd.setPrice(priceTax.longValue());
-            //p.setPrice(priceImp.longValue());
             return newProd;
+            //p.setPrice(priceTax.longValue());
+            //return p;
         }).collect(Collectors.toList());
     }
 

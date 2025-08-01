@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.guidjhonsen.springboot.di.app.springboot_di.models.Product;
 
-@Primary
+//@Primary
 @Repository("productFoo")
 public class ProductRepositoryFoo  implements ProductRepository{
 
