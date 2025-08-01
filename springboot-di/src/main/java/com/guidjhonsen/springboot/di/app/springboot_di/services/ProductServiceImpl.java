@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.guidjhonsen.springboot.di.app.springboot_di.models.Product;
@@ -13,6 +14,9 @@ import com.guidjhonsen.springboot.di.app.springboot_di.repositories.ProductRepos
 
 @Service //Para acceder a la lógica de negocio
 public class ProductServiceImpl implements ProductService {
+
+    @Autowired
+    private Environment environment;
 
    // @Autowired
     private ProductRepository repository;//--new ProductRepositoryImpl();
@@ -25,13 +29,13 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAll(){
 
         return repository.findAll().stream().map(p -> {
-            Double  priceTax=p.getPrice() * 1.25d;
+            Double  priceTax=p.getPrice() * environment.getProperty("config.price.tax", Double.class);
             //Product newProd=new Product(p.getId(), p.getName(), priceTax.longValue());
-            //Product newProd = (Product) p.clone();
-            //newProd.setPrice(priceTax.longValue());
-            //return newProd;
-            p.setPrice(priceTax.longValue());
-            return p;
+            Product newProd = (Product) p.clone();
+            newProd.setPrice(priceTax.longValue());
+            return newProd;
+            //p.setPrice(priceTax.longValue());
+            //return p;
         }).collect(Collectors.toList());
     }
 
