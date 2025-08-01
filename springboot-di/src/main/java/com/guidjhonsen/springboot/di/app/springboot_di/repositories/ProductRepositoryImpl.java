@@ -6,12 +6,14 @@ import java.util.List;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 import com.guidjhonsen.springboot.di.app.springboot_di.models.Product;
 
 
 @Primary
-@RequestScope
+//@RequestScope
+@SessionScope
 @Repository("productList")
 public class ProductRepositoryImpl implements ProductRepository{
     private List<Product> data;
