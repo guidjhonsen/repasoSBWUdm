@@ -4,14 +4,14 @@ package com.guidjhonsen.curso.springboot.di.factura.springboot_difactura.models;
 
 public class Item {
     private Product product;
-    private Integer quality;
+    private Integer quantity;
 
     public Item() {
     }
     
-    public Item(Product product, Integer quality) {
+    public Item(Product product, Integer quantity) {
         this.product = product;
-        this.quality = quality;
+        this.quantity = quantity;
     }
     public Product getProduct() {
         return product;
@@ -19,12 +19,14 @@ public class Item {
     public void setProduct(Product product) {
         this.product = product;
     }
-    public Integer getQuality() {
-        return quality;
+    public Integer getQuantity() {
+        return quantity;
     }
-    public void setQuality(Integer quality) {
-        this.quality = quality;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
-    
+    public int getImporte(){
+        return quantity*product.getPrice();
+    }
 }

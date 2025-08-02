@@ -11,12 +11,12 @@ import com.guidjhonsen.curso.springboot.di.factura.springboot_difactura.models.I
 import com.guidjhonsen.curso.springboot.di.factura.springboot_difactura.models.Product;
 
 @Configuration
-@PropertySource("classpath:data.properties")
+@PropertySource(value="classpath:data.properties", encoding="UTF-8")
 public class AppConfig {
 
     @Bean
     List<Item> itemsInvoice(){
-        Product p1=new Product("Camara Sony",800);
+        Product p1=new Product("Cámara Sony",800);
         Product p2=new Product("Bicicleta de los Huanca",1800);
         
         List<Item> items= Arrays.asList(new Item(p1, 2), new Item(p2, 4));
