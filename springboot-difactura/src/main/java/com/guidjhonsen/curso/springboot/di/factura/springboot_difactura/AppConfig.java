@@ -15,7 +15,7 @@ import com.guidjhonsen.curso.springboot.di.factura.springboot_difactura.models.P
 @PropertySource(value="classpath:data.properties", encoding="UTF-8")
 public class AppConfig {
 
-    @Bean
+    @Bean("default")
     List<Item> itemsInvoice(){
         Product p1=new Product("Cámara Sony",800);
         Product p2=new Product("Bicicleta de los Huanca",1800);
@@ -26,7 +26,7 @@ public class AppConfig {
     }
 
     @Bean
-    @Primary
+    //@Primary
     List<Item> itemsInvoiceOffice(){
         Product p1= new Product("Monitor Asus 51",700);
         Product p2= new Product("Impresora",2800);
