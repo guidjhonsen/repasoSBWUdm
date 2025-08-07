@@ -1,6 +1,5 @@
 package com.guidjhonsen.curso.springboot.app.interceptor.springbootinterceptor;
 
-import java.util.logging.Handler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,8 +12,10 @@ public class MVCConfig implements WebMvcConfigurer{
     @Autowired
     @Qualifier("timeInterceptor")
     private HandlerInterceptor timeInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(timeInterceptor);
+        registry.addInterceptor(timeInterceptor).addPathPatterns("/app/bar");
+//                .excludePathPatterns("/app/foo", "/app/bar", "/app/baz");
     }
 }
