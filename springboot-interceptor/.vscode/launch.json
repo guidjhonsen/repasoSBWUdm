@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootInterceptorApplication<springboot-interceptor>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.guidjhonsen.curso.springboot.app.interceptor.springbootinterceptor.SpringbootInterceptorApplication",
+            "projectName": "springboot-interceptor",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
