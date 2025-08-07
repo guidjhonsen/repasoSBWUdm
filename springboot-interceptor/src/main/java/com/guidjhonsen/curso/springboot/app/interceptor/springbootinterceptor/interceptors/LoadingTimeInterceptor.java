@@ -9,6 +9,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -20,7 +21,7 @@ public class LoadingTimeInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-                HandlerMethod controller = (HandlerMethod) handler;
+                HandlerMethod controller = ((HandlerMethod) handler);
                 logger.info("LoadingTimeInterceptor: preHandle() Entrando al metodo del controlador" + controller.getMethod().getName());
                 long startTime = System.currentTimeMillis();
                 request.setAttribute("startTime", startTime);
@@ -28,6 +29,20 @@ public class LoadingTimeInterceptor implements HandlerInterceptor {
                 Integer delay = rand.nextInt(500);
                 Thread.sleep(delay);
                 
+
+                //Map<String, String> json = new HashMap<>();
+                //json.put("Error", "no se puede procesar la peticion");
+                //json.put("date", String.valueOf(new java.util.Date()));
+                //ObjectMapper mapper = new ObjectMapper();
+                //String jsonString = mapper.writeValueAsString(json);
+                //if(delay > 400) {
+                //    logger.error("LoadingTimeInterceptor: preHandle() El tiempo de espera ha sido mayor a 400ms, se rechaza la peticion");
+                //    response.setStatus(503);
+                //    response.setContentType("application/json");
+                //    response.getWriter().write(jsonString);
+                //    return false;
+                //}
+                //return false;      
         return true;
     }
 
