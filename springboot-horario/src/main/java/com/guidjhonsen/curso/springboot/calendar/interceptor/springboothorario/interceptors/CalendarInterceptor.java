@@ -31,7 +31,7 @@ public class CalendarInterceptor implements HandlerInterceptor{
 
         System.out.println("Intercepting request: " + request.getRequestURI());
 
-        if (hour < open || hour >= close) {
+        if (hour >= open && hour < close) {
             System.out.println("Request blocked due to calendar restrictions.");
             
             StringBuilder message = new StringBuilder("Bienvenidos al horario de atención al cliente");
@@ -46,7 +46,7 @@ public class CalendarInterceptor implements HandlerInterceptor{
         message.append(" Atendemos desde las ").append(open).append(" hrs. hasta las ").append(close).append(" hrs.");
         request.setAttribute("message", message.toString());
         data.put("message", message.toString());
-        data.put("date", new Date());
+        data.put("date", new Date().toString());
         response.setContentType("application/json");
         response.getWriter().write(mapper.writeValueAsString(data));
         //response.setStatus(HttpServletResponse.SC_OK);
