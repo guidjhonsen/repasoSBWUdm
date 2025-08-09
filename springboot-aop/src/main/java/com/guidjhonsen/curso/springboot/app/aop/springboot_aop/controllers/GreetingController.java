@@ -19,5 +19,10 @@ public class GreetingController {
     public ResponseEntity <?> greeting() {
         return ResponseEntity.ok(Collections.singletonMap("greeting", greetingService.sayHello("Guidjhonsen", "Welcome to Spring Boot AOP!")));
     }
+
+    @GetMapping("/greeting-error")
+    public ResponseEntity <?> greetingError() {
+        return ResponseEntity.ok(Collections.singletonMap("greeting", greetingService.sayHelloError("Guidjhonsen", "Welcome to Spring Boot AOP!")));
+    }
     
 }
