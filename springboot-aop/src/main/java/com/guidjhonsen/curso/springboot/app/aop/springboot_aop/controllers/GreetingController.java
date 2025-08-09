@@ -17,7 +17,7 @@ public class GreetingController {
     private GreetingService greetingService;
     @GetMapping("/greeting")
     public ResponseEntity <?> greeting() {
-        return ResponseEntity.ok(Collections.singletonMap("greeting", greetingService.sayHello("World", "Welcome to Spring Boot AOP!")));
+        return ResponseEntity.ok(Collections.singletonMap("greeting", greetingService.sayHello("Guidjhonsen", "Welcome to Spring Boot AOP!")));
     }
     
 }
