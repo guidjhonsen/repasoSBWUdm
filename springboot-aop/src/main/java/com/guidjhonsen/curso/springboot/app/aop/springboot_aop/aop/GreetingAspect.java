@@ -12,15 +12,17 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+@Order(2) // Define the order of execution for this aspect
 @Aspect
 @Component
 public class GreetingAspect {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
-    @Before("execution(* com.guidjhonsen.curso.springboot.app.aop.springboot_aop.services.GreetingServiceImpl.*(..))")
+    @Before("execution(* com.guidjhonsen.curso.springboot.app.aop.springboot_aop.services.GreetingService.*(..))")
     public void loggerBefore(JoinPoint joinPoint) {
         
         String method = joinPoint.getSignature().getName();
@@ -29,7 +31,7 @@ public class GreetingAspect {
         logger.info("Antes {} con los argumentos: {}", method, args);
     }
 
-    @After("execution(* com.guidjhonsen.curso.springboot.app.aop.springboot_aop.services.GreetingServiceImpl.*(..))")
+    @After("execution(* com.guidjhonsen.curso.springboot.app.aop.springboot_aop.services.GreetingService.*(..))")
     public void loggerAfter(JoinPoint joinPoint) {
         
         String method = joinPoint.getSignature().getName();
@@ -38,7 +40,7 @@ public class GreetingAspect {
         logger.info("Despues {} con los argumentos: {}", method, args);
     }
 
-    @AfterReturning("execution(* com.guidjhonsen.curso.springboot.app.aop.springboot_aop.services.GreetingServiceImpl.*(..))")
+    @AfterReturning("execution(* com.guidjhonsen.curso.springboot.app.aop.springboot_aop.services.GreetingService.*(..))")
     public void loggerAfterReturning(JoinPoint joinPoint) {
         
         String method = joinPoint.getSignature().getName();
@@ -47,7 +49,7 @@ public class GreetingAspect {
         logger.info("Despues de retornar {} con los argumentos: {}", method, args);
     }
 
-    @AfterThrowing("execution(* com.guidjhonsen.curso.springboot.app.aop.springboot_aop.services.GreetingServiceImpl.*(..))")
+    @AfterThrowing("execution(* com.guidjhonsen.curso.springboot.app.aop.springboot_aop.services.GreetingService.*(..))")
     public void loggerAfterThrowing(JoinPoint joinPoint) {
         
         String method = joinPoint.getSignature().getName();
