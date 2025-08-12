@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
@@ -16,7 +17,11 @@ import org.springframework.stereotype.Component;
 public class GreetingFooAspect {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Before("execution(* com.guidjhonsen.curso.springboot.app.aop.springboot_aop.services.GreetingService.*(..))")
+    @Pointcut("execution(* com.guidjhonsen.curso.springboot.app.aop.springboot_aop.services.GreetingService.foo(..))")
+    private void greetingFooLoggerPintCut() {
+        // This method is used to define the pointcut for the GreetingService methods
+    }
+    @Before("greetingFooLoggerPintCut()")
     public void loggerBefore(JoinPoint joinPoint) {
         
         String method = joinPoint.getSignature().getName();
